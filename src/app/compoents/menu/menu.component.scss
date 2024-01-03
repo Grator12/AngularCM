@@ -1,8 +1,28 @@
-
+@use "../../../scss/mixins/typography";
 .menu{
-  &__headline{
-    color:var(--md-sys-color-on-surface-variant);
-    @include title-small;
+  &__headline {
+    color: var(--md-sys-color-on-surface-variant);
+    padding: 18px 16px;
+    @include typography.title-small;
   }
+  &__item {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    isolation: isolate;
+    align-items: center;
+    @include typography.label-large;
 
+    &__link {
+
+      width: 100%;
+      color: var(--md-sys-color-on-secondary-container) !important;
+
+      padding: 18px 12px;
+    }
+    &__icon{
+      width: 24px;
+      height: 24px;
+    }
+  }
 }

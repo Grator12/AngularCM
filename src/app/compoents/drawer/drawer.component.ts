@@ -29,7 +29,7 @@ export class DrawerComponent {
     {
       id:3,
       label:"Favorites",
-      icon:"favorites",
+      icon:"favorite",
       count:24
     },
     {

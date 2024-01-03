@@ -1,13 +1,19 @@
-
-<!--  <div class="menu__headline">{{title}}</div>-->
-<!--  <mat-nav-list>-->
-<!--&lt;!&ndash;  @for (link of navLinks; track link) {&ndash;&gt;-->
-<!--&lt;!&ndash;    <a class="" mat-list-item [activated]="link.id === activeLinkId" (click)="activeLinkId = link.id">{{ link.label }}</a>&ndash;&gt;-->
-<!--&lt;!&ndash;  }&ndash;&gt;-->
-<!--    <ng-container *ngFor="let link of navLinks;" >-->
-<!--      <a class="" mat-list-item [activated]="link.id === activeLinkId" (click)="activeLinkId = link.id">{{ link.label }}</a>-->
-<!--    </ng-container >-->
-<!--  </mat-nav-list>-->
-<!--  <mat-divider></mat-divider>-->
+<div class="menu__headline">{{title}}</div>
+<mat-nav-list>
+  <!--  @for (link of navLinks; track link) {-->
+  <!--    <a class="" mat-list-item [activated]="link.id === activeLinkId" (click)="activeLinkId = link.id">{{ link.label }}</a>-->
+  <!--  }-->
+  <ng-container *ngFor="let link of navLinks;">
+    <a mat-list-item [activated]="link.id === activeLinkId" (click)="activeLinkId = link.id" class="menu__item">
+      <span class="material-symbols-outlined menu__item__icon">
+          {{link.icon}} <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+      </span>
+    <a class="menu__item__link"
+       >{{ link.label }}</a>
+    <div class="menu__item__count">{{link.count}}</div>
+    </a>
+  </ng-container>
+</mat-nav-list>
+<mat-divider></mat-divider>
 
 
