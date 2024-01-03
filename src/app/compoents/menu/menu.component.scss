@@ -1,0 +1,8 @@
+
+.menu{
+  &__headline{
+    color:var(--md-sys-color-on-surface-variant);
+    @include title-small;
+  }
+
+}

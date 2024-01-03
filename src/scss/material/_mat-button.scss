@@ -1,4 +1,4 @@
-@use "../mixins/typography.module";
+@use "../mixins/typography";
 .mdc-button.mdc-button {
   --mdc-filled-button-container-color:var(--md-sys-color-primary);
   --mdc-filled-button-container-height: 40px;

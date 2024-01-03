@@ -1,14 +1,16 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-
+import {MatButtonModule} from "@angular/material/button";
+import {NavButtonsComponent} from "./compoents/nav-buttons/nav-buttons.component";
+import {DrawerComponent} from "./compoents/drawer/drawer.component";
 
 
 
 @Component({
   selector: 'gcm-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet],
+  imports: [CommonModule, RouterOutlet, NavButtonsComponent, MatButtonModule, DrawerComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
