@@ -1,0 +1,17 @@
+@use "../mixins/typography.module";
+.mdc-button.mdc-button {
+  --mdc-filled-button-container-color:var(--md-sys-color-primary);
+  --mdc-filled-button-container-height: 40px;
+  --mdc-filled-button-container-shape:20px;
+  --mdc-filled-button-label-text-color:var(--md-sys-color-on-primary);
+  --mat-filled-button-hover-state-layer-opacity:0.08;
+  --mat-filled-button-state-layer-color: var(--md-sys-color-on-primary);
+  --mat-filled-button-ripple-color:var(--md-sys-color-on-primary);
+
+  .mdc-button__label{
+    @include typography.label-large;
+  }
+  .mat-ripple{
+    opacity: .1;
+  }
+}

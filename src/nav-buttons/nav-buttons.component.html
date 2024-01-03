@@ -1,0 +1,5 @@
+<mat-nav-list>
+  @for (link of navLinks; track link) {
+  <a mat-list-item [activated]="link.id ===activeLinkId" (click) ="activeLinkId = link.id">{{ link.label }}</a>
+  }
+</mat-nav-list>
