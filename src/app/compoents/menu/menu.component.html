@@ -4,7 +4,7 @@
   <!--    <a class="" mat-list-item [activated]="link.id === activeLinkId" (click)="activeLinkId = link.id">{{ link.label }}</a>-->
   <!--  }-->
   <ng-container *ngFor="let link of navLinks">
-    <a mat-list-item [activated]="link.id === activeLinkId" (click)="setActiveLinkId(link.id)"
+    <a mat-list-item [activated]="(activatedLinkId$ | async ) === link.id " (click)="setActiveLinkId(link.id)"
        class="menu__item">
       <span class="material-symbols-outlined menu__item__icon">
           {{link.icon}}
@@ -14,6 +14,6 @@
     </a>
   </ng-container>
 </mat-nav-list>
-<mat-divider></mat-divider>
+
 
 

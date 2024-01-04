@@ -1,13 +1,15 @@
 import {Component,} from '@angular/core';
 import {MenuComponent} from "../menu/menu.component";
 import {INavigationItem} from "../../interfaces/inavigation-item";
+import {MatListModule} from "@angular/material/list";
 
 
 @Component({
   selector: 'gcm-drawer',
   standalone: true,
   imports: [
-    MenuComponent
+    MenuComponent,
+    MatListModule
   ],
   templateUrl: './drawer.component.html',
   styleUrl: './drawer.component.scss'

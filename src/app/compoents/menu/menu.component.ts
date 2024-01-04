@@ -3,6 +3,8 @@ import {INavigationItem} from "../../interfaces/inavigation-item";
 import {MatListModule} from "@angular/material/list";
 import {MatButtonModule} from "@angular/material/button";
 import {CommonModule} from "@angular/common";
+import {MenuService} from "../../services/menu/menu.service";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'gcm-menu',
@@ -18,15 +20,21 @@ import {CommonModule} from "@angular/common";
 
 })
 export class MenuComponent {
+
   @Input() public title: string = "";
   @Input() public navLinks: INavigationItem[] = [];
 
-  @Input() activeLinkId: number = -1;
-  @Output() activeLinkIdChange = new EventEmitter<number>();
+
+  get activatedLinkId$(): Observable<number> {
+    return this.menuService.activatedLinkId$;
+  }
+
+  constructor(private menuService: MenuService) {
+  }
 
 
   public setActiveLinkId(id: number) {
-    this.activeLinkIdChange.emit(id);
+    this.menuService.activatedLinkId$.next(id);
   }
 
 }
