@@ -44,12 +44,16 @@ $AngularCM-theme: mat.define-light-theme((
 html, body {
   height: 100%;
 }
-
+*{
+  box-sizing: border-box;
+}
 body {
   margin: 0;
   font-family: "Roboto", sans-serif !important;
   background-color: var(--md-sys-color-background);
   color:var(--md-sys-color-on-background);
+  display:grid;
+  grid-template-columns: 360px 1fr;
   @include typography.body-medium;
 }
 

@@ -1,16 +1,16 @@
 @use "../../../scss/mixins/typography";
 .menu{
+
   &__headline {
     color: var(--md-sys-color-on-surface-variant);
     padding: 18px 16px;
     @include typography.title-small;
+    grid-row: 1;
+    grid-column: span 3;
   }
   &__item {
     position: relative;
-    display: flex;
-    justify-content: space-between;
     isolation: isolate;
-    align-items: center;
     @include typography.label-large;
 
     &__link {
@@ -26,3 +26,4 @@
     }
   }
 }
+
