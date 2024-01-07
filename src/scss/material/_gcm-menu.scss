@@ -1,5 +1,5 @@
-gcm-menu{
-  grid-column: span 3;
+gcm-menu {
+  grid-column: span var(--span-grid);
   display: grid;
   grid-template-columns: subgrid;
   grid-template-rows: min-content 1fr;

@@ -1,10 +1,9 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import {Component} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {RouterOutlet} from '@angular/router';
 import {MatButtonModule} from "@angular/material/button";
 import {NavButtonsComponent} from "./compoents/nav-buttons/nav-buttons.component";
-import {DrawerComponent} from "./compoents/drawer/drawer.component";
-
+import {DrawerComponent} from "./compoents/navigation/navigation.component";
 
 
 @Component({

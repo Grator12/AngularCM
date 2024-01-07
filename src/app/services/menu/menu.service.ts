@@ -8,12 +8,12 @@ export class MenuService {
 
   public activatedLinkId$ = new Subject<number>();
 
-  constructor() {
-
-    this.activatedLinkId$.pipe(
-      tap((val) => console.log('tap', val)),
-      map((v) => v + 10),
-      pairwise()
-    ).subscribe((val) => console.log('vvv', val))
-  }
+  // constructor() {
+  //
+  //   this.activatedLinkId$.pipe(
+  //     tap((val) => console.log('tap', val)),
+  //     map((v) => v + 10),
+  //     pairwise()
+  //   ).subscribe((val) => console.log('vvv', val))
+  // }
 }

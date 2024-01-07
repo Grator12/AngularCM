@@ -3,7 +3,7 @@
 .mdc-list-item.mdc-list-item {
   --mdc-list-list-item-one-line-container-height: 56px;
   --mdc-list-list-item-label-text-color: var(--md-sys-color-on-surface-variant);
-  grid-column: span 3;
+  grid-column: span var(--span-grid);
   display: grid !important;
   grid-template-columns: subgrid;
 }
@@ -26,14 +26,12 @@
   }
 
   &--activated {
-    background-color: var(--md-sys-color-secondary-container) !important;
-    grid-column: span 3;
-    border-radius: 36px !important;
+    grid-column: span var(--span-grid);
     pointer-events: none !important;
   }
 
   &__content {
-    grid-column: span 3;
+    grid-column: span var(--span-grid);
     display: grid;
     grid-template-columns: subgrid;
     pointer-events: none !important;
@@ -43,7 +41,8 @@
     place-items: center;
     display: grid;
     grid-template-columns: subgrid;
-    grid-column: span 3;
+    grid-column: span var(--span-grid);
+    justify-items: normal;
   }
 }
 

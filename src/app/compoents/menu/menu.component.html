@@ -6,9 +6,9 @@
   <ng-container *ngFor="let link of navLinks">
     <a mat-list-item [activated]="(activatedLinkId$ | async ) === link.id " (click)="setActiveLinkId(link.id)"
        class="menu__item">
-      <span class="material-symbols-outlined menu__item__icon">
-          {{link.icon}}
-      </span>
+      <div class="material-symbols-outlined menu__item__icon">
+        {{link.icon}}
+      </div>
       <a class="menu__item__link">{{ link.label }}</a>
       <div class="menu__item__count">{{link.count}}</div>
     </a>

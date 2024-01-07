@@ -1,0 +1,111 @@
+$breakpoint-desktop: 800px;
+@media (max-width: #{$breakpoint-desktop}) {
+
+  body {
+    --nav-width: 80px;
+    --span-grid: 1;
+  }
+  .menu {
+    &__headline {
+      display: none;
+    }
+
+    &__item {
+      padding: 0 2px;
+
+      &__count {
+        display: none;
+      }
+
+      &__link {
+        padding: 4px 0 !important;
+      }
+
+      &__icon {
+        position: relative;
+
+
+        &::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          z-index: -1;
+          background-color: var(--md-sys-color-on-secondary-container);
+          opacity: var(--_state_layer-opacity);
+          border-radius: 16px;
+        }
+      }
+    }
+  }
+  .navigation {
+    grid-template-columns: 1fr;
+    grid-template-rows: min-content min-content;
+    padding: 8px;
+  }
+  .mdc-list-item {
+    --_state_layer-opacity: 0;
+
+    &--activated {
+      background-color: var(--md-sys-color-surface);
+      border-radius: 0 !important;
+
+      .menu__item__icon {
+        &::before {
+          background-color: var(--md-sys-color-secondary-container);
+          --_state_layer-opacity: 1;
+        }
+      }
+    }
+
+    &::before {
+      display: none;
+    }
+
+    &:hover {
+      --_state_layer-opacity: .08;
+    }
+
+    //&:hover {
+    //--mdc-list-list-item-hover-label-text-color: var(--md-sys-color-surface) !important;
+
+    //  &::before {
+    //    --mdc-list-list-item-hover-state-layer-color: var(--md-sys-color-surface) !important;
+    //    --mdc-list-list-item-hover-state-layer-opacity: var(--md-sys-state-hover-state-layer-opacity, 0) !important;
+    //  }
+    //}
+    //
+    //&--activated {
+    //  background-color: var(--md-sys-color-surface) !important;
+    //  background-color: transparent;
+    //}
+
+    padding: 0 !important;
+
+    &__primary-text {
+      justify-items: center !important;
+    }
+  }
+  .mat-mdc-nav-list {
+    @media (max-width: #{$breakpoint-desktop}) {
+      grid-row-gap: 12px;
+    }
+  }
+}
+
+
+@media (min-width: #{$breakpoint-desktop}) {
+  .mat-mdc-nav-list {
+    grid-template-columns: subgrid;
+  }
+  .mdc-list-item {
+    &--activated {
+      background-color: var(--md-sys-color-secondary-container) !important;
+      border-radius: 36px !important;
+    }
+  }
+  .navigation {
+    grid-template-columns: min-content 1fr min-content;
+    grid-auto-rows: min-content;
+    padding: 16px;
+  }
+}

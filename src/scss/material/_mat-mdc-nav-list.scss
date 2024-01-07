@@ -1,6 +1,5 @@
-.mat-mdc-nav-list {
-  grid-column: span 3;
-  display: grid !important;
-  grid-template-columns: subgrid;
 
+.mat-mdc-nav-list {
+  grid-column: span var(--span-grid);
+  display: grid !important;
 }

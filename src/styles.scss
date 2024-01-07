@@ -1,7 +1,5 @@
 @forward "scss/theme";
 
-
-
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @use '@angular/material' as mat;
@@ -39,28 +37,37 @@ $AngularCM-theme: mat.define-light-theme((
 
 /* You can add global styles to this file, and also import other style files */
 @import "scss/material";
-
+@import "scss/adaptive";
 
 html, body {
   height: 100%;
 }
-*{
+
+* {
   box-sizing: border-box;
 }
+
+:root {
+  --nav-width: 360px;
+  --span-grid: 3;
+}
+
+
 body {
+
+
   margin: 0;
   font-family: "Roboto", sans-serif !important;
   background-color: var(--md-sys-color-background);
-  color:var(--md-sys-color-on-background);
-  display:grid;
-  grid-template-columns: 360px 1fr;
+  color: var(--md-sys-color-on-background);
+  display: grid;
+  grid-template-columns: var(--nav-width) 1fr;
   @include typography.body-medium;
 }
 
- .material-symbols-outlined {
-   font-variation-settings:
-     'FILL' 0,
-     'wght' 400,
-     'GRAD' 0,
-     'opsz' 24
- }
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}

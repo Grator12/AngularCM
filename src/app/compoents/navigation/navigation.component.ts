@@ -5,14 +5,14 @@ import {MatListModule} from "@angular/material/list";
 
 
 @Component({
-  selector: 'gcm-drawer',
+  selector: 'gcm-navigation',
   standalone: true,
   imports: [
     MenuComponent,
     MatListModule
   ],
-  templateUrl: './drawer.component.html',
-  styleUrl: './drawer.component.scss'
+  templateUrl: './navigation.component.html',
+  styleUrl: './navigation.component.scss'
 })
 export class DrawerComponent {
   public navLinksFirst: INavigationItem[] = [
