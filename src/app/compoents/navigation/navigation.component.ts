@@ -18,27 +18,31 @@ export class DrawerComponent {
   public navLinksFirst: INavigationItem[] = [
     {
       id: 1,
-      label: "Inbox",
-      icon: "inbox",
-      count: 24
+      label: "library",
+      icon: "library_books",
+      count: 24,
+      link: '/library'
     },
     {
       id: 2,
       label: "Outbox",
       icon: "send",
-      count: 24
+      count: 24,
+      link: '/Outbox'
     },
     {
       id: 3,
       label: "Favorites",
       icon: "favorite",
-      count: 24
+      count: 24,
+      link: '/Favorites'
     },
     {
       id: 4,
       label: "Trash",
       icon: "delete",
-      count: 24
+      count: 24,
+      link: '/Trash'
     },
 
 
@@ -46,15 +50,17 @@ export class DrawerComponent {
   public navLinksSecond: INavigationItem[] = [
     {
       id: 5,
-      label: "label",
+      label: "label1",
       icon: "circle",
-      count: 24
+      count: 24,
+      link: '/label1'
     },
     {
       id: 6,
-      label: "label",
+      label: "label2",
       icon: "circle",
-      count: 24
+      count: 24,
+      link: '/label2'
     },
   ];
   public activeLinkId: number = 1;

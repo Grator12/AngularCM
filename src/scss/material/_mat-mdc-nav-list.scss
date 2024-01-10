@@ -1,5 +1,6 @@
-
-.mat-mdc-nav-list {
-  grid-column: span var(--span-grid);
-  display: grid !important;
+.navigation {
+  .mat-mdc-nav-list {
+    grid-column: span var(--span-grid);
+    display: grid !important;
+  }
 }

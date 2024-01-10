@@ -1,0 +1,10 @@
+<mat-nav-list>
+  <mat-list-item>
+    <ng-container *ngFor="let book of books">
+      <div class="">
+        {{book.name + book.author}}
+      </div>
+    </ng-container>
+  </mat-list-item>
+</mat-nav-list>
+<button mat-button (click)="addBook()">Add book</button>
