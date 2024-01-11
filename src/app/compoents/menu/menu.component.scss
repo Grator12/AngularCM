@@ -1,6 +1,13 @@
 @use "../../../scss/mixins/typography";
 
+.router-wrapper {
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: span var(--span-grid);
+}
+
 .menu {
+
 
   &__headline {
     color: var(--md-sys-color-on-surface-variant);
@@ -23,19 +30,13 @@
       text-align: center;
       width: 100%;
       z-index: 1;
-      //width: 24px;
-      //height: 24px;
     }
   }
 }
 
 a[ng-reflect-router-link] {
-  //border-radius: 32px;
-  //color: var(--md-sys-color-on-secondary-container);
-  //background-color: transparent;
+
 }
 
-.mat-ripple-element {
-  background-color: #1E7DBA !important;
-}
+
 

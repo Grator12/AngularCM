@@ -28,21 +28,21 @@ export class DrawerComponent {
       label: "Outbox",
       icon: "send",
       count: 24,
-      link: '/Outbox'
+      link: '/'
     },
     {
       id: 3,
       label: "Favorites",
       icon: "favorite",
       count: 24,
-      link: '/Favorites'
+      link: '/'
     },
     {
       id: 4,
       label: "Trash",
       icon: "delete",
       count: 24,
-      link: '/Trash'
+      link: '/'
     },
 
 
@@ -53,14 +53,14 @@ export class DrawerComponent {
       label: "label1",
       icon: "circle",
       count: 24,
-      link: '/label1'
+      link: '/'
     },
     {
       id: 6,
       label: "label2",
       icon: "circle",
       count: 24,
-      link: '/label2'
+      link: '/'
     },
   ];
   public activeLinkId: number = 1;

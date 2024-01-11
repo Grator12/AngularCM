@@ -1,3 +1,4 @@
 .main-wrapper {
-  display: flex;
+  display: grid;
+  grid-template-columns: var(--nav-width) 1fr;
 }

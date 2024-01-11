@@ -17,22 +17,27 @@ import {MatButtonModule} from "@angular/material/button";
     MatButtonModule
   ],
   templateUrl: './book-list.component.html',
-  styleUrl: './book-list.component.scss'
-
+  styleUrl: './book-list.component.scss',
+  // styles: [' .bookList {grid-column: 2; grid-row: 1;}'],
+  host: {class: 'bookList'}
 })
 
 export class BookListComponent implements OnInit {
   public books: IBook[] = [];
 
   public ngOnInit(): void {
-    this.bookService.getAllBooks().subscribe(books => {
-      this.books = books;
-    });
+    this.loadBooks();
   }
 
   public addBook(): void {
     this.bookService.addBook().subscribe(() => {
+      this.loadBooks();
+    });
+  }
 
+  private loadBooks() {
+    this.bookService.getAllBooks().subscribe(books => {
+      this.books = books;
     });
   }
 

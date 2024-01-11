@@ -1,10 +1,18 @@
 <mat-nav-list>
-  <mat-list-item>
-    <ng-container *ngFor="let book of books">
-      <div class="">
-        {{book.name + book.author}}
+  <ng-container *ngFor="let book of books">
+    <mat-list-item class="book">
+      <!--      <div class="book">-->
+      <div class="book__info">
+        <div class="book__info__name">
+          {{book.name}}
+        </div>
+        <div class="book__info__author">
+          {{book.author}}
+        </div>
       </div>
-    </ng-container>
-  </mat-list-item>
+      <!--      </div>-->
+    </mat-list-item>
+  </ng-container>
 </mat-nav-list>
+
 <button mat-button (click)="addBook()">Add book</button>

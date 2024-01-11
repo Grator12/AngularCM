@@ -36,7 +36,10 @@ $AngularCM-theme: mat.define-light-theme((
 @include mat.all-component-themes($AngularCM-theme);
 
 /* You can add global styles to this file, and also import other style files */
-@import "scss/material";
+//        MATERIAL
+@import "scss/material/navigation";
+@import "scss/material/book-list";
+//        ADAPTIVE
 @import "scss/adaptive";
 
 html, body {
@@ -45,6 +48,7 @@ html, body {
 
 * {
   box-sizing: border-box;
+
 }
 
 :root {
@@ -60,8 +64,8 @@ body {
   font-family: "Roboto", sans-serif !important;
   background-color: var(--md-sys-color-background);
   color: var(--md-sys-color-on-background);
-  display: grid;
-  grid-template-columns: var(--nav-width) 1fr;
+  //display: grid;
+  //grid-template-columns: var(--nav-width) 1fr;
   @include typography.body-medium;
 }
 
