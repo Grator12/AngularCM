@@ -1,13 +1,13 @@
 <mat-nav-list>
   <ng-container *ngFor="let book of books">
-    <mat-list-item class="book">
+    <mat-list-item class="book" (click)="editBook(book)">
       <!--      <div class="book">-->
       <div class="book__info">
         <div class="book__info__name">
           {{book.name}}
         </div>
         <div class="book__info__author">
-          {{book.author}}
+          {{book | bookPipe}}
         </div>
       </div>
       <!--      </div>-->
@@ -15,4 +15,8 @@
   </ng-container>
 </mat-nav-list>
 
-<button mat-button (click)="addBook()">Add book</button>
+<button mat-fab (click)="addBook()" class="book-list__button">
+  <span class="material-symbols-outlined book-list__button__add">
+      add
+  </span>
+</button>

@@ -3,8 +3,11 @@ import {MatListModule} from "@angular/material/list";
 import {BookService} from "../../services/book/book.service";
 import {CommonModule} from "@angular/common";
 import {MatRippleModule} from "@angular/material/core";
-import {IBook} from "../../interfaces/book";
+import {IAddBook, IBook, IEditBook} from "../../interfaces/book";
 import {MatButtonModule} from "@angular/material/button";
+import {BookPipe} from "../../pipes/book/book.pipe";
+import {MatDialog} from "@angular/material/dialog";
+import {AddBookComponent} from "../dialogs/add-book/add-book.component";
 
 @Component({
 
@@ -14,11 +17,11 @@ import {MatButtonModule} from "@angular/material/button";
     MatListModule,
     CommonModule,
     MatRippleModule,
-    MatButtonModule
+    MatButtonModule,
+    BookPipe
   ],
   templateUrl: './book-list.component.html',
   styleUrl: './book-list.component.scss',
-  // styles: [' .bookList {grid-column: 2; grid-row: 1;}'],
   host: {class: 'bookList'}
 })
 
@@ -30,8 +33,24 @@ export class BookListComponent implements OnInit {
   }
 
   public addBook(): void {
-    this.bookService.addBook().subscribe(() => {
-      this.loadBooks();
+
+    const dialogRef = this.bookDialog.open(AddBookComponent, {});
+    dialogRef.afterClosed().subscribe((book: IAddBook) => {
+      if (book) {
+        this.bookService.addBook(book);
+      }
+    });
+  }
+
+  public editBook(book: IBook): void {
+
+    const dialogRef = this.bookDialog.open(AddBookComponent, {
+      data: book
+    });
+    dialogRef.afterClosed().subscribe((book: IEditBook) => {
+      if (book) {
+        this.bookService.editBook(book);
+      }
     });
   }
 
@@ -41,10 +60,10 @@ export class BookListComponent implements OnInit {
     });
   }
 
-  //private loadbbok
 
   constructor(
-    private bookService: BookService
+    private bookService: BookService,
+    private bookDialog: MatDialog,
   ) {
   }
 }

@@ -16,3 +16,21 @@
     }
   }
 }
+
+.book-list__button {
+  position: absolute;
+  right: 40px;
+  bottom: 40px;
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+
+  &:hover {
+    --_add-button-rotate: 90deg;
+  }
+
+  &__add {
+    transition: rotate ease-out .4s;
+    rotate: var(--_add-button-rotate, 0);
+
+  }
+}

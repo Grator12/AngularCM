@@ -1,4 +1,7 @@
 <div class="main-wrapper">
-  <gcm-navigation></gcm-navigation>
-  <router-outlet></router-outlet>
+  <gcm-navigation *ngIf="authService.isAuthorized"></gcm-navigation>
+  <router-outlet>
+    <button *ngIf="authService.isAuthorized" (click)="signOut()">Sign Out</button>
+  </router-outlet>
+
 </div>

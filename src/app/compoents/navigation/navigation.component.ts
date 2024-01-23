@@ -9,7 +9,7 @@ import {MatListModule} from "@angular/material/list";
   standalone: true,
   imports: [
     MenuComponent,
-    MatListModule
+    MatListModule,
   ],
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.scss'
@@ -63,6 +63,6 @@ export class DrawerComponent {
       link: '/'
     },
   ];
-  public activeLinkId: number = 1;
+  // public activeLinkId: number = 1;
 
 }
