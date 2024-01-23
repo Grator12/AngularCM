@@ -5,8 +5,8 @@ import {Router} from "@angular/router";
   providedIn: 'root'
 })
 export class AuthService {
+  private _isAuth: boolean = false;
 
-  private _isAuth: boolean = localStorage();
 
   constructor(private router: Router) {
   }
