@@ -1,11 +1,4 @@
-.bookDialog {
-  .mdc-button {
-    --mdc-text-button-label-text-color: var(--md-sys-color-primary);
-
-    &__label {
-
-    }
-  }
+.regDialog {
 
 
   .mdc-text-field {
@@ -16,5 +9,7 @@
     --mdc-filled-text-field-active-indicator-color: var(--md-sys-color-outline);
     --mdc-filled-text-field-hover-active-indicator-color: var(--md-sys-color-outline);
     --mdc-outlined-text-field-focus-label-text-color: var(--md-sys-color-outline);
+
+
   }
 }

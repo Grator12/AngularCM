@@ -23,7 +23,7 @@ import {BookService} from "../../services/book/book.service";
 })
 export class MenuComponent implements OnInit, OnDestroy {
   private _booksCountSubscription: Subscription = new Subscription();
-  public booksCount$: Subject<number> = new Subject<number>();
+  public booksCount$: BehaviorSubject<number | null> = new BehaviorSubject<number | null>(null);
   @Input() public title: string = "";
   @Input() public navLinks: INavigationItem[] = [];
 

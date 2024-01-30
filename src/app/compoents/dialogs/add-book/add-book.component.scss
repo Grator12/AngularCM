@@ -7,23 +7,23 @@
   min-width: 280px;
   max-width: 560px;
 
-  &_headLine {
+  &__headLine {
     padding: 0 16px;
     margin: 0 0 16px 0;
     @include typography.headline-small;
     color: var(--md-sys-color-on-surface);
   }
 
-  &_content {
+  &__content {
 
 
   }
 
-  &_actions {
+  &__actions {
     display: flex;
     justify-content: flex-end;
 
-    &_button {
+    &__button {
       background: transparent !important;
       box-shadow: none;
     }
@@ -31,10 +31,10 @@
 }
 
 .dialogForm {
-  &_field {
+  &__field {
     width: 100%;
 
-    &_label {
+    &__label {
       @include typography.body-large;
       color: var(--md-sys-color-on-surface);
     }

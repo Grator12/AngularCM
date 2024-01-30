@@ -1,0 +1,25 @@
+<div class="regDialog">
+  <h1 mat-dialog-title class="regDialog__headLine">Registration</h1>
+  <div mat-dialog-content class="regDialog__content">
+    <form [formGroup]="registrationForm" class="regDialog__content__form dialogForm">
+      <mat-form-field class="dialogForm__field">
+        <mat-label class="dialogForm__field__label">Name</mat-label>
+        <input matInput formControlName="name">
+      </mat-form-field>
+      <mat-form-field class="dialogForm__field">
+        <mat-label class="dialogForm__field__label">Email</mat-label>
+        <input matInput formControlName="email" type="email">
+      </mat-form-field>
+      <mat-form-field class="dialogForm__field">
+        <mat-label class="dialogForm__field__label">Password</mat-label>
+        <input matInput formControlName="password" type="password">
+      </mat-form-field>
+
+    </form>
+  </div>
+  <div mat-dialog-actions class="regDialog__actions">
+    <button mat-button (click)="onClose()" class="regDialog_actions__button">Close</button>
+    <button mat-button (click)="onReg()" [disabled]="registrationForm.invalid" class="regDialog__actions__button">Ok
+    </button>
+  </div>
+</div>

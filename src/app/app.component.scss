@@ -1,4 +1,20 @@
 .main-wrapper {
   display: grid;
   grid-template-columns: var(--nav-width) 1fr;
+
+  &--center {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.signOutButton {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  --mdc-text-button-label-text-color: var(--md-sys-color-primary);
+
+  &:hover {
+    --mdc-text-button-label-text-color: var(--md-sys-color-on-primary)
+  }
 }

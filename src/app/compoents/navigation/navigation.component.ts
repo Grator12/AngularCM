@@ -27,21 +27,18 @@ export class DrawerComponent {
       id: 2,
       label: "Outbox",
       icon: "send",
-      count: 24,
       link: '/'
     },
     {
       id: 3,
       label: "Favorites",
       icon: "favorite",
-      count: 24,
       link: '/'
     },
     {
       id: 4,
       label: "Trash",
       icon: "delete",
-      count: 24,
       link: '/'
     },
 
@@ -52,14 +49,12 @@ export class DrawerComponent {
       id: 5,
       label: "label1",
       icon: "circle",
-      count: 24,
       link: '/'
     },
     {
       id: 6,
       label: "label2",
       icon: "circle",
-      count: 24,
       link: '/'
     },
   ];

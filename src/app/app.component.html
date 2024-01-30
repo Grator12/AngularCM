@@ -1,7 +1,8 @@
-<div class="main-wrapper">
+<div [ngClass]="this.authService.isAuthorized ? 'main-wrapper' : 'main-wrapper--center'">
   <gcm-navigation *ngIf="authService.isAuthorized"></gcm-navigation>
   <router-outlet>
-    <button *ngIf="authService.isAuthorized" (click)="signOut()">Sign Out</button>
+    <button mat-button *ngIf="authService.isAuthorized" (click)="signOut()" class="signOutButton">
+      <span class="material-symbols-outlined"> logout </span>
+    </button>
   </router-outlet>
-
 </div>

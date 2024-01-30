@@ -2,6 +2,6 @@ export interface INavigationItem {
   id: number,
   label: string,
   icon: string,
-  count: number,
+  count?: number,
   link: string
 }

@@ -1,13 +1,4 @@
-.bookDialog {
-  .mdc-button {
-    --mdc-text-button-label-text-color: var(--md-sys-color-primary);
-
-    &__label {
-
-    }
-  }
-
-
+.authForm {
   .mdc-text-field {
     --mdc-filled-text-field-container-color: none;
     --mdc-filled-text-field-input-text-color: var(--md-sys-color-on-surface);

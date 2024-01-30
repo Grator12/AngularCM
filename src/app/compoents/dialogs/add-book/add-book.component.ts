@@ -4,7 +4,7 @@ import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {IAddBook, IBook, IEditBook} from "../../../interfaces/book";
-import {MatButton, MatButtonModule} from "@angular/material/button";
+import {MatButtonModule} from "@angular/material/button";
 
 @Component({
   selector: 'gcm-add-book',

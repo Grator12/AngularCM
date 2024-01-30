@@ -1,13 +1,14 @@
 import {Injectable} from '@angular/core';
 import {IAddBook, IBook, IEditBook} from "../../interfaces/book";
-import {Observable, of, Subject} from "rxjs";
+import {BehaviorSubject, Observable, of, Subject} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookService {
   private _currentId: number = 1
-  private _booksCountSubject = new Subject<number>();
+  private _booksCountSubject = new BehaviorSubject<number | null>(null);
+
   private _books: IBook[] = [
     {
       id: this._currentId,
@@ -19,6 +20,12 @@ export class BookService {
     },
 
   ];
+
+  constructor() {
+    this._booksCountSubject.next(this._books.length);
+    1
+  }
+
 
   public getAllBooks(): Observable<IBook[]> {
     this.sendBooksCount();
@@ -34,8 +41,8 @@ export class BookService {
         author: AddBookReq.author,
       }
     this._books.push(book);
-    this.sendBooksCount();
-    //this._booksCountSubject.next(this._books.length);
+    this._booksCountSubject.next(this._books.length);
+
 
     return of();
 
@@ -49,11 +56,10 @@ export class BookService {
     return of();
   }
 
-  public sendBooksCount(): Observable<number> {
-    this._booksCountSubject.next(this._books.length);
+  public sendBooksCount(): Observable<number | null> {
+
     return this._booksCountSubject;
   }
 
-  constructor() {
-  }
+
 }

@@ -1,2 +1,23 @@
-<button (click)="signIn()">Sign In</button>
-
+<div class="authForm">
+  <h1 mat-dialog-title class="authForm__headLine">Authorization</h1>
+  <div mat-dialog-content class="authForm__content">
+    <form [formGroup]="authForm" class="authForm__content__form authFormGroup">
+      <mat-form-field class="authFormGroup__field">
+        <mat-label class="authFormGroup__field__label">Email</mat-label>
+        <input type="email" matInput formControlName="email">
+        <mat-error *ngIf="email.hasError('email')">Email is invalid</mat-error>
+        <mat-error *ngIf="email.hasError('required')">Email is required</mat-error>
+      </mat-form-field>
+      <mat-form-field class="authFormGroup__field">
+        <mat-label class="authFormGroup__field__label">Password</mat-label>
+        <input type="password" matInput formControlName="password">
+        <mat-error *ngIf="password.hasError('required')">Password is required</mat-error>
+      </mat-form-field>
+    </form>
+  </div>
+  <button class="authForm__hint" (click)="registration()">Registration</button>
+  <div mat-dialog-actions class="authForm__actions">
+    <button mat-button (click)="signIn()" [disabled]="authForm.invalid" class="authForm__actions__button">Sign In
+    </button>
+  </div>
+</div>
