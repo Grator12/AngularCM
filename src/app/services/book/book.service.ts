@@ -1,6 +1,9 @@
 import {Injectable} from '@angular/core';
-import {IAddBook, IBook, IEditBook} from "../../interfaces/book";
+import {IAddBook, IBook, IEditBook, IHttpBook} from "../../interfaces/book";
 import {BehaviorSubject, Observable, of, Subject} from "rxjs";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {environment} from "../../../environments/environment";
+import {AuthService} from "../authorization/auth.service";
 
 @Injectable({
   providedIn: 'root'
@@ -21,15 +24,27 @@ export class BookService {
 
   ];
 
-  constructor() {
+  constructor(private httpClient: HttpClient,
+              private authService: AuthService
+  ) {
     this._booksCountSubject.next(this._books.length);
-    1
+
   }
 
 
-  public getAllBooks(): Observable<IBook[]> {
-    this.sendBooksCount();
-    return of(this._books);
+  // public getAllBooks(): Observable<IBook[]> {
+  //   this.sendBooksCount();
+  //   return of(this._books);
+  // }
+  public getAllBooks(): Observable<IHttpBook[]> {
+
+    let headers = new HttpHeaders({
+      ['Content-Type']: 'application/json',
+      ['Authorization']: `Bearer ${this.authService.getAccessToken()}`
+    });
+    return this.httpClient.get<IHttpBook[]>(environment.apiUrl + 'books', {
+      headers: headers
+    });
   }
 
   public addBook(AddBookReq: IAddBook): Observable<any> {

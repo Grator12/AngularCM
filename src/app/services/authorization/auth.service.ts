@@ -3,7 +3,7 @@ import {Router} from "@angular/router";
 import {IAuthorization} from "../../interfaces/authorization";
 import {IUser} from "../../interfaces/user";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {Observable, tap} from "rxjs";
 import {environment} from "../../../environments/environment.development";
 
 //import {toString} from "jasmine";
@@ -12,12 +12,17 @@ import {environment} from "../../../environments/environment.development";
   providedIn: 'root'
 })
 export class AuthService {
-  private _user: string = '';
+  public _user: string = '';
+  private _accessToken: string = '';
 
   constructor(private router: Router, private httpClient: HttpClient) {
-    this.getFromLocalStorage('user', this._user);
+    //this.getFromLocalStorage('user', this._user);
 
 
+  }
+
+  public getAccessToken(): string {
+    return this._accessToken;
   }
 
   private getFromLocalStorage(key: string, value: any): void {
@@ -29,24 +34,63 @@ export class AuthService {
     }
   }
 
-  public signIn(AuthModel: IAuthorization): void {
-    this._user = AuthModel.email;
+  // public signIn(model: IAuthorization): Observable<any> {
+  //   let headers = new HttpHeaders({
+  //     ['accept']: 'application/json',
+  //     ['Content-Type']: 'application/json'
+  //   });
+  //   this._user = model.email;
+  //   localStorage.setItem('user', this._user);
+  //   return this.httpClient.post(environment.apiUrl + 'auth/signIn', JSON.stringify(model), {headers: headers});
+  //
+  //
+  //   // this.router.navigate(['/']);
+  // }
+
+  public signIn(model: IAuthorization): Observable<any> {
+    let headers = new HttpHeaders({
+      ['Content-Type']: 'application/json'
+    });
+    this._user = model.email;
     localStorage.setItem('user', this._user);
-    this.router.navigate(['/']);
+    return this.httpClient.post<any>(environment.apiUrl + 'auth/login', JSON.stringify(model), {headers: headers}).pipe(
+      tap({
+        next: result => {
+          this._accessToken = result.accessToken;
+          this.parseUserName();
+        }, error: _ => {
+          this._accessToken = '';
+          this._user = '';
+        }
+      })
+    );
+
+
+    // this.router.navigate(['/']);
   }
 
   public signOut(): void {
     this._user = '';
+
     localStorage.setItem('user', '');
     this.goToAuth();
   }
+
+  private parseUserName(): void {
+    let payload = this._accessToken.split('.')[1];
+    let authDataStr = atob(payload);
+    let authData = JSON.parse(authDataStr);
+    this._user = `${authData.name} <${authData.email}>`;
+  }
+
 
   public goToAuth(): void {
     this.router.navigate(['/authorization']);
   }
 
   public get isAuthorized(): boolean {
-    return this._user != '';
+    return this._accessToken != '';
+    // return this._user != '';
   }
 
 

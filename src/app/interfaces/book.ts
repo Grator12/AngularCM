@@ -16,3 +16,9 @@ export interface IEditBook {
   name: string,
   author: IAuthor
 }
+
+export interface IHttpBook {
+  id: string,
+  name: string,
+  author: string
+}

@@ -3,7 +3,7 @@ import {MatListModule} from "@angular/material/list";
 import {BookService} from "../../services/book/book.service";
 import {CommonModule} from "@angular/common";
 import {MatRippleModule} from "@angular/material/core";
-import {IAddBook, IBook, IEditBook} from "../../interfaces/book";
+import {IAddBook, IBook, IEditBook, IHttpBook} from "../../interfaces/book";
 import {MatButtonModule} from "@angular/material/button";
 import {BookPipe} from "../../pipes/book/book.pipe";
 import {MatDialog} from "@angular/material/dialog";
@@ -54,9 +54,23 @@ export class BookListComponent implements OnInit {
     });
   }
 
+  private convertBooks(books: IHttpBook[]): IBook[] {
+    return books.map((book) => {
+      return {
+        id: parseInt(book.id),
+        name: book.name,
+        author: {
+          firstName: book.author.split(' ')[1],
+          surname: book.author.split(' ')[0]
+        }
+      }
+    });
+  }
+
   private loadBooks() {
     this.bookService.getAllBooks().subscribe(books => {
-      this.books = books;
+
+      this.books = this.convertBooks(books);
     });
   }
 

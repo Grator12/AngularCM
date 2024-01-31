@@ -9,12 +9,15 @@
 }
 
 .signOutButton {
+  --_opacity: 0;
+  z-index: 1;
   position: absolute;
+  display: flex;
+  justify-content: center;
+  align-content: center;
   top: 12px;
   right: 12px;
-  --mdc-text-button-label-text-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-primary);
+  isolation: isolate;
 
-  &:hover {
-    --mdc-text-button-label-text-color: var(--md-sys-color-on-primary)
-  }
 }

@@ -11,6 +11,9 @@ import {IBook, IEditBook} from "../../interfaces/book";
 import {AddBookComponent} from "../dialogs/add-book/add-book.component";
 import {MatDialog} from "@angular/material/dialog";
 import {RegistrationComponent} from "../dialogs/registration/registration.component";
+import {Observable} from "rxjs";
+import {Router} from "@angular/router";
+import {error} from "@angular/compiler-cli/src/transformers/util";
 
 @Component({
   selector: 'gcm-authorization',
@@ -25,7 +28,7 @@ import {RegistrationComponent} from "../dialogs/registration/registration.compon
   styleUrl: './authorization.component.scss'
 })
 export class AuthorizationComponent {
-  constructor(public authService: AuthService, private regDialog: MatDialog) {
+  constructor(public authService: AuthService, private regDialog: MatDialog, private router: Router) {
     let l1 = localStorage.getItem('allUsers')
     if (l1 != null) {
       this._allUsers = JSON.parse(l1);
@@ -72,10 +75,19 @@ export class AuthorizationComponent {
       email: this.email.value,
       password: this.password.value
     }
-    if (this.checkReg(loginModel.email, loginModel.password)) this.authService.signIn(loginModel);
-    else alert('Please, create new Account');
+    //if (this.checkReg(loginModel.email, loginModel.password))
+    this.authService.signIn(loginModel).subscribe({
+      next: () => {
+        this.router.navigate(['/'])
+      },
+      error: () => {
+        alert('Please, create new Account');
+      }
+    });
+    // else alert('Please, create new Account');
 
   }
+
 
   authForm = new FormGroup({
     email: new FormControl<string>('', [

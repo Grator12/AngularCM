@@ -20,7 +20,7 @@ export class DrawerComponent {
       id: 1,
       label: "library",
       icon: "library_books",
-      count: 24,
+      count: 1,
       link: '/library'
     },
     {

@@ -1,4 +1,4 @@
-<div class="menu__headline">{{title}}</div>
+<div class="menu__headline">{{ title }}</div>
 <mat-nav-list>
   <!--  @for (link of navLinks; track link) {-->
   <!--    <a class="" mat-list-item [activated]="link.id === activeLinkId" (click)="activeLinkId = link.id">{{ link.label }}</a>-->
@@ -16,10 +16,10 @@
 
 
         <div class="material-symbols-outlined menu__item__icon">
-          {{link.icon}}
+          {{ link.icon }}
         </div>
         <a class="menu__item__link">{{ link.label }}</a>
-        <div class="menu__item__count">{{booksCount$ | async}}</div>
+        <div class="menu__item__count" *ngIf="link.count">{{ booksCount$ | async }}</div>
         <!--        <div class="menu__item__count">rr{{booksCount$ | async }}rr</div>-->
       </a>
     </div>
