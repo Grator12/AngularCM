@@ -1,7 +1,7 @@
 import {IAuthor} from "./author";
 
 export interface IBook {
-  id: number,
+  id: string,
   name: string,
   author: IAuthor
 }
@@ -12,7 +12,7 @@ export interface IAddBook {
 }
 
 export interface IEditBook {
-  id: number,
+  id: string,
   name: string,
   author: IAuthor
 }

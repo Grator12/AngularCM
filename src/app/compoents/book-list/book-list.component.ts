@@ -26,7 +26,13 @@ import {AddBookComponent} from "../dialogs/add-book/add-book.component";
 })
 
 export class BookListComponent implements OnInit {
-  public books: IBook[] = [];
+  constructor(
+    protected bookService: BookService,
+    private bookDialog: MatDialog,
+  ) {
+  }
+
+  // public books: IBook[] = [];
 
   public ngOnInit(): void {
     this.loadBooks();
@@ -54,30 +60,13 @@ export class BookListComponent implements OnInit {
     });
   }
 
-  private convertBooks(books: IHttpBook[]): IBook[] {
-    return books.map((book) => {
-      return {
-        id: parseInt(book.id),
-        name: book.name,
-        author: {
-          firstName: book.author.split(' ')[1],
-          surname: book.author.split(' ')[0]
-        }
-      }
-    });
-  }
 
   private loadBooks() {
     this.bookService.getAllBooks().subscribe(books => {
 
-      this.books = this.convertBooks(books);
+
     });
   }
 
 
-  constructor(
-    private bookService: BookService,
-    private bookDialog: MatDialog,
-  ) {
-  }
 }

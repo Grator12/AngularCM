@@ -41,13 +41,14 @@ export class MenuComponent implements OnInit, OnDestroy {
   ngOnInit() {
     // this.booksCount$.subscribe((v) => console.log('booksCount$', v))
     // this._bookService.getBooksCount().pipe(tap((r) => console.log('ddddddddd ', r))).subscribe(val => this.booksCount$.next(val));
-    this._booksCountSubscription.add(this._bookService.sendBooksCount().subscribe(count => {
-      this.booksCount$.next(count);
-    }));
+    // this._booksCountSubscription.add(this._bookService.sendBooksCount().subscribe(count => {
+    //   this.booksCount$.next(count);
+    // }));
+    this._bookService.booksCountSubject.subscribe(this.booksCount$);
   }
 
   ngOnDestroy() {
-    this._booksCountSubscription.unsubscribe();
+    //this._booksCountSubscription.unsubscribe();
   }
 
   public setActiveLinkId(id: number) {

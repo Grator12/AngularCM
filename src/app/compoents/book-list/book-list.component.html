@@ -1,13 +1,13 @@
 <mat-nav-list>
-  <ng-container *ngFor="let book of books">
+  <ng-container *ngFor="let book of bookService.books$ | async">
     <mat-list-item class="book" (click)="editBook(book)">
       <!--      <div class="book">-->
       <div class="book__info">
         <div class="book__info__name">
-          {{book.name}}
+          {{ book.name }}
         </div>
         <div class="book__info__author">
-          {{book | bookPipe}}
+          {{ book | bookPipe }}
         </div>
       </div>
       <!--      </div>-->

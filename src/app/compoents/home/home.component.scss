@@ -1,0 +1,14 @@
+@use "../../../scss/mixins/typography";
+
+.gcm-home {
+  grid-column: 2;
+  grid-row: 1;
+  color: var(--md-sys-color-on-background);
+  padding-inline: 16px;
+  @include typography.body-large;
+}
+
+.UserIntroduction {
+
+}
+

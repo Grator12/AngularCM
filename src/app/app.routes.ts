@@ -4,6 +4,7 @@ import {authGuard} from "./guards/auth/auth.guard";
 import {AuthorizationComponent} from "./compoents/authorization/authorization.component";
 import {AppComponent} from "./app.component";
 import {nonAuthGuard} from "./guards/non-auth/non-auth.guard";
+import {HomeComponent} from "./compoents/home/home.component";
 
 export const routes: Routes = [
   {
@@ -18,7 +19,7 @@ export const routes: Routes = [
   },
   {
     path: "",
-    component: AppComponent,
+    component: HomeComponent,
     canActivate: [authGuard]
   },
   // {

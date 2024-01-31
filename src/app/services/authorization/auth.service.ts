@@ -70,8 +70,8 @@ export class AuthService {
   }
 
   public signOut(): void {
+    this._accessToken = '';
     this._user = '';
-
     localStorage.setItem('user', '');
     this.goToAuth();
   }
