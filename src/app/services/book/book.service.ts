@@ -45,8 +45,13 @@ export class BookService {
 
         return this.convertBooks(books);
       }),
-      tap(books => this.books$.next(books))
+      tap(books => {
+
+        this.books$.next(books);
+        console.log(this.books$);
+      })
     );
+
   }
 
   private convertBooks(books: IHttpBook[]): IBook[] {
@@ -62,31 +67,65 @@ export class BookService {
     });
   }
 
+
   public addBook(AddBookReq: IAddBook): Observable<any> {
-    this._currentId = v4();
-    let book: IBook =
+    // this._currentId = v4();
+    // let book: IBook =
+    //   {
+    //     id: this._currentId.toString(),
+    //     name: AddBookReq.name,
+    //     author: AddBookReq.author,
+    //   }
+    let book =
       {
-        id: this._currentId.toString(),
         name: AddBookReq.name,
-        author: AddBookReq.author,
+        author: `${AddBookReq.author.firstName} ${AddBookReq.author.surname}`,
       }
-    //this._books.push(book);
-    this.books$.next([...this.books$.value, book])
+    return this.httpClient.post<IBook>(environment.apiUrl + 'books', JSON.stringify(book))
+      .pipe(
+        tap(() => {
+          //this.updateBookList();
+          // this.books$.next([...this.books$.value, AddBookReq]);
+
+          //this.getAllBooks();
+        }));
+
 
     //this._booksCountSubject.next(this._books.length);
 
-
-    return of();
+    // this.books$.next([...this.books$.value, book])
+    // return of();
 
   }
 
   public editBook(editBookReq: IEditBook): Observable<any> {
-    const index = this.books$.value.findIndex(book => book.id === editBookReq.id);
-    if (index !== -1) {
-      this.books$.value[index] = editBookReq;
-      this.books$.next(this.books$.value);
-    }
-    return of();
+    // const index = this.books$.value.findIndex(book => book.id === editBookReq.id);
+    // if (index !== -1) {
+    //   this.books$.value[index] = editBookReq;
+    //   this.books$.next(this.books$.value);
+    // }
+    // return of();
+    let book =
+      {
+        name: editBookReq.name,
+        author: `${editBookReq.author.surname} ${editBookReq.author.firstName}`,
+      }
+    return this.httpClient.put<any>(environment.apiUrl + 'books/' + editBookReq.id, JSON.stringify(book))
+      .pipe(
+        tap(() => {
+          this.books$.next(this.books$.value);
+          //this.books$.next([...this.books$.value, editBookReq]);
+        }));
+  }
+
+  public deleteBook(id: string): Observable<any> {
+
+    return this.httpClient.delete(environment.apiUrl + 'books/' + id)
+      .pipe(
+        tap(() => {
+          this.books$.next(this.books$.value);
+
+        }));
   }
 
   public sendBooksCount(): Observable<number | null> {

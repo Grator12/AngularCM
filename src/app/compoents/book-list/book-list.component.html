@@ -14,10 +14,13 @@
 
         <!--      </div>-->
       </mat-list-item>
-      <!--      <button mat-icon-button class="book__favoriteButton" (click)="toggleFavorite(book)">-->
-      <!--        <span *ngIf="book.favorite" class="material-symbols-outlined"> heart_check </span>-->
-      <!--        <span *ngIf="!book.favorite" class="material-symbols-outlined"> heart_plus </span>-->
-      <!--      </button>-->
+      <!--            <button mat-icon-button class="book__favoriteButton" (click)="toggleFavorite(book)">-->
+      <!--              <span *ngIf="book.favorite" class="material-symbols-outlined"> heart_check </span>-->
+      <!--              <span *ngIf="!book.favorite" class="material-symbols-outlined"> heart_plus </span>-->
+      <!--            </button>-->
+      <button mat-icon-button class="book__favoriteButton" (click)="onDelete(book.id)">
+        <span class="material-symbols-outlined"> delete </span>
+      </button>
     </div>
   </ng-container>
 </mat-nav-list>

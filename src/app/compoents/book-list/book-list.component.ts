@@ -43,7 +43,8 @@ export class BookListComponent implements OnInit {
     const dialogRef = this.bookDialog.open(AddBookComponent, {});
     dialogRef.afterClosed().subscribe((book: IAddBook) => {
       if (book) {
-        this.bookService.addBook(book);
+        this.bookService.addBook(book).subscribe(() => this.loadBooks());
+
       }
     });
   }
@@ -55,17 +56,22 @@ export class BookListComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe((book: IEditBook) => {
       if (book) {
-        this.bookService.editBook(book);
+        this.bookService.editBook(book).subscribe(() => this.loadBooks());
       }
     });
   }
 
-  public toggleFavorite(book: IBook): void {
-    if (book.favorite) {
-      book.favorite = false
-    } else {
-      book.favorite = true;
-    }
+  // public toggleFavorite(book: IBook): void {
+  //   if (book.favorite) {
+  //     book.favorite = false
+  //   } else {
+  //     book.favorite = true;
+  //   }
+  // }
+  public onDelete(id: string): void {
+    console.log('Delete: ', id);
+    this.bookService.deleteBook(id).subscribe(() => this.loadBooks());
+
   }
 
   private loadBooks() {

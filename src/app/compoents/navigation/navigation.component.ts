@@ -25,8 +25,8 @@ export class DrawerComponent {
     },
     {
       id: 2,
-      label: "Outbox",
-      icon: "send",
+      label: "Read",
+      icon: "import_contacts",
       link: '/'
     },
     {

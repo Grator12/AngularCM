@@ -34,19 +34,6 @@ export class AuthService {
     }
   }
 
-  // public signIn(model: IAuthorization): Observable<any> {
-  //   let headers = new HttpHeaders({
-  //     ['accept']: 'application/json',
-  //     ['Content-Type']: 'application/json'
-  //   });
-  //   this._user = model.email;
-  //   localStorage.setItem('user', this._user);
-  //   return this.httpClient.post(environment.apiUrl + 'auth/signIn', JSON.stringify(model), {headers: headers});
-  //
-  //
-  //   // this.router.navigate(['/']);
-  // }
-
   public signIn(model: IAuthorization): Observable<any> {
     let headers = new HttpHeaders({
       ['Content-Type']: 'application/json'

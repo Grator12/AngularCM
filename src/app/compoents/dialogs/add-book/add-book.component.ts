@@ -5,6 +5,8 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {IAddBook, IBook, IEditBook} from "../../../interfaces/book";
 import {MatButtonModule} from "@angular/material/button";
+import {NgIf} from "@angular/common";
+import {BookService} from "../../../services/book/book.service";
 
 @Component({
   selector: 'gcm-add-book',
@@ -13,12 +15,15 @@ import {MatButtonModule} from "@angular/material/button";
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    NgIf
   ],
   templateUrl: './add-book.component.html',
   styleUrl: './add-book.component.scss'
 })
 export class AddBookComponent implements OnInit {
+
+
   public bookForm = new FormGroup({
     name: new FormControl<string>('', Validators.required),
     authorFirstName: new FormControl<string>('', Validators.required),
@@ -51,7 +56,9 @@ export class AddBookComponent implements OnInit {
 
   private onEdit(): void {
     if (!this.data) return;
+    if (!this.data.id) return;
     let book: IEditBook = {
+
       id: this.data.id,
       name: this.bookForm.get('name')?.value ?? '',
       author: {
@@ -74,7 +81,7 @@ export class AddBookComponent implements OnInit {
   }
 
   constructor(public dialogRef: MatDialogRef<AddBookComponent>,
-              @Inject(MAT_DIALOG_DATA) private data?: IBook,
+              @Inject(MAT_DIALOG_DATA) public data?: IBook,
   ) {
 
   }
