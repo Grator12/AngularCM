@@ -5,6 +5,8 @@
 
 
   &__info {
+    flex-grow: 1;
+
     &__name {
       color: var(--md-sys-color-on-surface);
       @include typography.body-large;
@@ -13,6 +15,20 @@
     &__author {
       color: var(--md-sys-color-on-surface-variant);
       @include typography.body-medium;
+    }
+  }
+
+  &__wrapper {
+
+    display: grid;
+    grid-template-columns: max-content 24px;
+  }
+
+  &__favoriteButton {
+    z-index: 1 !important;
+    color: var(--md-sys-color-on-surface-variant);
+
+    &:hover {
     }
   }
 }

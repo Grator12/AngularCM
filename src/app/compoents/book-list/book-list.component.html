@@ -1,17 +1,24 @@
 <mat-nav-list>
   <ng-container *ngFor="let book of bookService.books$ | async">
-    <mat-list-item class="book" (click)="editBook(book)">
-      <!--      <div class="book">-->
-      <div class="book__info">
-        <div class="book__info__name">
-          {{ book.name }}
+    <div class="book__wrapper">
+      <mat-list-item class="book">
+        <!--      <div class="book">-->
+        <div class="book__info" (click)="editBook(book)">
+          <div class="book__info__name">
+            {{ book.name }}
+          </div>
+          <div class="book__info__author">
+            {{ book | bookPipe }}
+          </div>
         </div>
-        <div class="book__info__author">
-          {{ book | bookPipe }}
-        </div>
-      </div>
-      <!--      </div>-->
-    </mat-list-item>
+
+        <!--      </div>-->
+      </mat-list-item>
+      <!--      <button mat-icon-button class="book__favoriteButton" (click)="toggleFavorite(book)">-->
+      <!--        <span *ngIf="book.favorite" class="material-symbols-outlined"> heart_check </span>-->
+      <!--        <span *ngIf="!book.favorite" class="material-symbols-outlined"> heart_plus </span>-->
+      <!--      </button>-->
+    </div>
   </ng-container>
 </mat-nav-list>
 

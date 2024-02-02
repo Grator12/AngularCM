@@ -8,6 +8,7 @@ import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
 import {IUser} from "../../../interfaces/user";
 import {AuthService} from "../../../services/authorization/auth.service";
+import {NgIf} from "@angular/common";
 
 @Component({
   selector: 'gcm-registration',
@@ -16,7 +17,8 @@ import {AuthService} from "../../../services/authorization/auth.service";
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    NgIf
   ],
   templateUrl: './registration.component.html',
   styleUrl: './registration.component.scss'
@@ -48,5 +50,17 @@ export class RegistrationComponent {
     this.authService.register(user).subscribe(() => {
       this.dialogRef.close(user);
     });
+  }
+
+  public get name(): FormControl<string> {
+    return this.registrationForm.get('name') as FormControl<string>;
+  }
+
+  public get email(): FormControl<string> {
+    return this.registrationForm.get('email') as FormControl<string>;
+  }
+
+  public get password(): FormControl<string> {
+    return this.registrationForm.get('password') as FormControl<string>;
   }
 }

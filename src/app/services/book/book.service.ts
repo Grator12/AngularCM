@@ -40,13 +40,7 @@ export class BookService {
   // }
   public getAllBooks(): Observable<IBook[]> {
 
-    let headers = new HttpHeaders({
-      ['Content-Type']: 'application/json',
-      ['Authorization']: `Bearer ${this.authService.getAccessToken()}`
-    });
-    return this.httpClient.get<IHttpBook[]>(environment.apiUrl + 'books', {
-      headers: headers
-    }).pipe(
+    return this.httpClient.get<IHttpBook[]>(environment.apiUrl + 'books',).pipe(
       map(books => {
 
         return this.convertBooks(books);

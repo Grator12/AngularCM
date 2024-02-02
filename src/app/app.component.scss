@@ -1,6 +1,7 @@
 .main-wrapper {
   display: grid;
   grid-template-columns: var(--nav-width) 1fr;
+  position: relative;
 
   &--center {
     display: flex;

@@ -60,11 +60,16 @@ export class BookListComponent implements OnInit {
     });
   }
 
+  public toggleFavorite(book: IBook): void {
+    if (book.favorite) {
+      book.favorite = false
+    } else {
+      book.favorite = true;
+    }
+  }
 
   private loadBooks() {
     this.bookService.getAllBooks().subscribe(books => {
-
-
     });
   }
 
