@@ -1,3 +1,4 @@
+
 .main-wrapper {
   display: grid;
   grid-template-columns: var(--nav-width) 1fr;
@@ -9,16 +10,19 @@
   }
 }
 
-.signOutButton {
-  --_opacity: 0;
-  z-index: 1;
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  top: 12px;
-  right: 12px;
-  color: var(--md-sys-color-primary);
-  isolation: isolate;
-
+router-outlet {
+  display: none;
 }
+
+
+.content-wrapper {
+  display: grid;
+  //grid-template-columns: [container-start] var(--offset) [content-start] repeat(var(--columns), var(--column-size)) [content-end] var(--offset) [container-end];
+  grid-template-rows:60px 1fr;
+  grid-auto-flow: row;
+  //column-gap: var(--spacing);
+  //display: flex;
+  //flex-direction: column;
+}
+
+

@@ -48,7 +48,6 @@ export class BookService {
       tap(books => {
 
         this.books$.next(books);
-        console.log(this.books$);
       })
     );
 
@@ -69,13 +68,6 @@ export class BookService {
 
 
   public addBook(AddBookReq: IAddBook): Observable<any> {
-    // this._currentId = v4();
-    // let book: IBook =
-    //   {
-    //     id: this._currentId.toString(),
-    //     name: AddBookReq.name,
-    //     author: AddBookReq.author,
-    //   }
     let book =
       {
         name: AddBookReq.name,
@@ -84,27 +76,17 @@ export class BookService {
     return this.httpClient.post<IBook>(environment.apiUrl + 'books', JSON.stringify(book))
       .pipe(
         tap(() => {
-          //this.updateBookList();
-          // this.books$.next([...this.books$.value, AddBookReq]);
-
-          //this.getAllBooks();
         }));
+  }
 
-
-    //this._booksCountSubject.next(this._books.length);
-
-    // this.books$.next([...this.books$.value, book])
-    // return of();
-
+  public generateBooks(count: number): Observable<any> {
+    return this.httpClient.post<IBook>(environment.apiUrl + 'books/generate/' + count.toString(), [])
+      .pipe(
+        tap(() => {
+        }));
   }
 
   public editBook(editBookReq: IEditBook): Observable<any> {
-    // const index = this.books$.value.findIndex(book => book.id === editBookReq.id);
-    // if (index !== -1) {
-    //   this.books$.value[index] = editBookReq;
-    //   this.books$.next(this.books$.value);
-    // }
-    // return of();
     let book =
       {
         name: editBookReq.name,
@@ -114,7 +96,6 @@ export class BookService {
       .pipe(
         tap(() => {
           this.books$.next(this.books$.value);
-          //this.books$.next([...this.books$.value, editBookReq]);
         }));
   }
 

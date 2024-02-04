@@ -7,6 +7,8 @@ import {IAddBook, IBook, IEditBook} from "../../../interfaces/book";
 import {MatButtonModule} from "@angular/material/button";
 import {NgIf} from "@angular/common";
 import {BookService} from "../../../services/book/book.service";
+import {MatTabsModule} from "@angular/material/tabs";
+import {generate, Observable, of} from "rxjs";
 
 @Component({
   selector: 'gcm-add-book',
@@ -16,18 +18,27 @@ import {BookService} from "../../../services/book/book.service";
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    NgIf
+    NgIf,
+    MatTabsModule
   ],
   templateUrl: './add-book.component.html',
   styleUrl: './add-book.component.scss'
 })
 export class AddBookComponent implements OnInit {
+  constructor(public dialogRef: MatDialogRef<AddBookComponent>,
+              private bookService: BookService,
+              @Inject(MAT_DIALOG_DATA) public data?: IBook,
+  ) {
 
+  }
 
   public bookForm = new FormGroup({
     name: new FormControl<string>('', Validators.required),
     authorFirstName: new FormControl<string>('', Validators.required),
     authorSurname: new FormControl<string>('', Validators.required)
+  })
+  public generateForm = new FormGroup({
+    count: new FormControl<number>(0, Validators.required),
   })
 
   public onClose(): void {
@@ -44,6 +55,12 @@ export class AddBookComponent implements OnInit {
     }
 
     this.dialogRef.close(book);
+  }
+
+  public generateOnOk(): void {
+    this.bookService.generateBooks(this.generateForm.get("count")?.value ?? 0).subscribe(() => this.bookService.getAllBooks().subscribe(books => {
+    }));
+    this.dialogRef.close();
   }
 
   public onOk(): void {
@@ -80,10 +97,6 @@ export class AddBookComponent implements OnInit {
     }
   }
 
-  constructor(public dialogRef: MatDialogRef<AddBookComponent>,
-              @Inject(MAT_DIALOG_DATA) public data?: IBook,
-  ) {
 
-  }
-
+  protected readonly generate = generate;
 }

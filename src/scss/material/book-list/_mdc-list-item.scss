@@ -1,9 +1,10 @@
 .book {
-  --mdc-list-list-item-one-line-container-height: 56px;
+  --mdc-list-list-item-one-line-container-height: auto;
 
   .mdc-list-item {
     &__primary-text {
-
+      display: grid;
+      grid-template-columns: 1fr 24px;
     }
   }
 }

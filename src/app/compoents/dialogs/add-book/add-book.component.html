@@ -1,24 +1,47 @@
 <div class="bookDialog">
-  <h1 mat-dialog-title class="bookDialog__headLine">Add Book</h1>
-  <div mat-dialog-content class="bookDialog_content">
-    <form [formGroup]="bookForm" class="bookDialog_content_form dialogForm">
-      <mat-form-field class="dialogForm__field">
-        <mat-label class="dialogForm__field__label">Name</mat-label>
-        <input matInput formControlName="name">
-      </mat-form-field>
-      <mat-form-field class="dialogForm__field">
-        <mat-label class="dialogForm__field__label">Author's First Name</mat-label>
-        <input matInput formControlName="authorFirstName">
-      </mat-form-field>
-      <mat-form-field class="dialogForm__field">
-        <mat-label class="dialogForm__field__label">Author's Surname</mat-label>
-        <input matInput formControlName="authorSurname">
-      </mat-form-field>
-    </form>
-  </div>
-  <div mat-dialog-actions class="bookDialog__actions">
+  <mat-tab-group dynamicHeight>
+    <mat-tab label="Add">
+      <h1 mat-dialog-title class="bookDialog__headLine">Add Book</h1>
+      <div mat-dialog-content class="bookDialog_content">
+        <form [formGroup]="bookForm" class="bookDialog_content_form dialogForm">
+          <mat-form-field class="dialogForm__field">
+            <mat-label class="dialogForm__field__label">Name</mat-label>
+            <input matInput formControlName="name">
+          </mat-form-field>
+          <mat-form-field class="dialogForm__field">
+            <mat-label class="dialogForm__field__label">Author's First Name</mat-label>
+            <input matInput formControlName="authorFirstName">
+          </mat-form-field>
+          <mat-form-field class="dialogForm__field">
+            <mat-label class="dialogForm__field__label">Author's Surname</mat-label>
+            <input matInput formControlName="authorSurname">
+          </mat-form-field>
+        </form>
+      </div>
+      <div mat-dialog-actions class="bookDialog__actions">
 
-    <button mat-button (click)="onClose()" class="bookDialog__actions__button">Close</button>
-    <button mat-button (click)="onOk()" [disabled]="bookForm.invalid" class="bookDialog__actions__button">Ok</button>
-  </div>
+        <button mat-button (click)="onClose()" class="bookDialog__actions__button">Close</button>
+        <button mat-button (click)="onOk()" [disabled]="bookForm.invalid" class="bookDialog__actions__button">Ok
+        </button>
+      </div>
+    </mat-tab>
+    <mat-tab label="Generate" *ngIf="!data">
+      <form [formGroup]="generateForm" class="bookDialog_content_form dialogForm">
+        <mat-form-field class="dialogForm__field">
+          <mat-label class="dialogForm__field__label">Count</mat-label>
+          <input matInput formControlName="count">
+        </mat-form-field>
+
+      </form>
+      <div mat-dialog-actions class="bookDialog__actions">
+
+        <button mat-button (click)="onClose()" class="bookDialog__actions__button">Close</button>
+        <button mat-button (click)="generateOnOk()" [disabled]="generateForm.invalid"
+                class="bookDialog__actions__button">Ok
+        </button>
+      </div>
+    </mat-tab>
+
+  </mat-tab-group>
+
 </div>

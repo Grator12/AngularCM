@@ -1,0 +1,87 @@
+@use 'sass:math';
+@use "../../../scss/mixins/typography";
+
+gcm-header {
+  height: 60px;
+  grid-column: 1/-1;
+  background-color: var(--md-sys-color-secondary-container);
+}
+
+.appHeader {
+  position: relative;
+  display: grid;
+  grid-column: 1/-1;
+  height: 100%;
+  text-align: center;
+  align-items: center;
+
+  &__introduction {
+
+    &__intr {
+      @include typography.body-large;
+      margin: 0;
+    }
+
+    &__user {
+      @include typography.label-small;
+      margin: 0;
+    }
+
+  }
+
+  &__signOutButton {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+    &__wrapper {
+      position: absolute;
+      right: 0;
+      z-index: 2;
+    }
+  }
+}
+
+//$spacing-min: 16px;
+//$spacing-max: 32px;
+//$offset-max: 200px;
+//$max-content: 1100px; // 1440 - 156 * 2
+//$content-column-size: math.div($max-content - 11 * $spacing-max, 12);
+//
+//$breakpoint-medium: 500px;
+//$breakpoint-expanded: 960px;
+//
+//
+//$breakpoint-content-min: $max-content + $spacing-max * 2;
+//$breakpoint-content-max: $breakpoint-content-min + $offset-max * 2;
+body {
+  //--offset: 0;
+  //--columns: 4;
+  //--spacing: #{$spacing-min};
+  //--column-size: 1fr;
+  //
+  //
+  //color: var(--md-sys-color-on-background);
+  //@media(min-width: $breakpoint-medium) {
+  //  --columns: 8;
+  //  --spacing: #{$spacing-max};
+  //}
+  //
+  //@media(min-width: $breakpoint-expanded) {
+  //  --columns: 12;
+  //
+  //}
+  //@media(min-width: $breakpoint-content-min) {
+  ////  --offset: 1fr;
+  //  --column-size: #{$content-column-size};
+  //}
+  //
+  //@media(min-width: $breakpoint-content-max) {
+  //  //--offset: #{$offset-max};
+  //  --offset: auto;
+  //  --column-size: #{$content-column-size}; //1fr
+  //}
+
+
+}
+

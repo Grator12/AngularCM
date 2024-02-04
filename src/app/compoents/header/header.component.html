@@ -1,0 +1,11 @@
+<header class="appHeader" *ngIf="authService.isAuthorized">
+  <div class="appHeader__introduction">
+    <p class='appHeader__introduction__intr'>Your Booker</p>
+    <p class='appHeader__introduction__user'>Welcome, {{ getUserName() }}</p>
+  </div>
+  <div class="appHeader__signOutButton__wrapper">
+    <button mat-icon-button (click)="signOut()" class="appHeader__signOutButton">
+      <span class="material-symbols-outlined"> logout </span>
+    </button>
+  </div>
+</header>

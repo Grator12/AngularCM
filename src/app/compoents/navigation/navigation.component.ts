@@ -23,40 +23,35 @@ export class DrawerComponent {
       count: 1,
       link: '/library'
     },
-    {
-      id: 2,
-      label: "Read",
-      icon: "import_contacts",
-      link: '/'
-    },
-    {
-      id: 3,
-      label: "Favorites",
-      icon: "favorite",
-      link: '/'
-    },
-    {
-      id: 4,
-      label: "Trash",
-      icon: "delete",
-      link: '/'
-    },
+    // {
+    //   id: 2,
+    //   label: "Home",
+    //   icon: "Home",
+    //   link: '/'
+    // },
+    // {
+    //   id: 3,
+    //   label: "Favorites",
+    //   icon: "favorite",
+    //   link: '/'
+    // },
+    // {
+    //   id: 4,
+    //   label: "Trash",
+    //   icon: "delete",
+    //   link: '/'
+    // },
 
 
   ];
   public navLinksSecond: INavigationItem[] = [
     {
-      id: 5,
-      label: "label1",
-      icon: "circle",
+      id: 2,
+      label: "Home",
+      icon: "home",
       link: '/'
     },
-    {
-      id: 6,
-      label: "label2",
-      icon: "circle",
-      link: '/'
-    },
+
   ];
   // public activeLinkId: number = 1;
 

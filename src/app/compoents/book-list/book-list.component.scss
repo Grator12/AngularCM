@@ -1,27 +1,42 @@
 @use "../../../scss/mixins/typography";
 
+.book-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 250px));
+  grid-auto-flow: row;
+  gap: 8px;
+}
 
 .book {
-
+  border: 1px solid var(--md-sys-color-outline);
+  border-radius: 8px;
+  flex-wrap: wrap;
+  display: flex;
+  align-content: flex-start;
 
   &__info {
     flex-grow: 1;
 
     &__name {
       color: var(--md-sys-color-on-surface);
+      white-space: normal !important;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
       @include typography.body-large;
     }
 
     &__author {
       color: var(--md-sys-color-on-surface-variant);
-      @include typography.body-medium;
+      // @include typography.body-medium;
+      @include typography.title-small;
     }
   }
 
   &__wrapper {
-
     display: grid;
-    grid-template-columns: max-content 24px;
+    text-align: start;
   }
 
   &__favoriteButton {

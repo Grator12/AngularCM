@@ -9,6 +9,7 @@ import {BookPipe} from "../../pipes/book/book.pipe";
 import {MatDialog} from "@angular/material/dialog";
 import {AddBookComponent} from "../dialogs/add-book/add-book.component";
 
+
 @Component({
 
   selector: 'gcm-bookList',
@@ -18,7 +19,8 @@ import {AddBookComponent} from "../dialogs/add-book/add-book.component";
     CommonModule,
     MatRippleModule,
     MatButtonModule,
-    BookPipe
+    BookPipe,
+
   ],
   templateUrl: './book-list.component.html',
   styleUrl: './book-list.component.scss',
