@@ -1,4 +1,6 @@
-$breakpoint-desktop: 800px;
+$breakpoint-desktop: 900px;
+$breakpoint-phone: 450px;
+
 @media (max-width: #{$breakpoint-desktop}) {
 
   body {
@@ -106,3 +108,5 @@ $breakpoint-desktop: 800px;
     }
   }
 }
+
+

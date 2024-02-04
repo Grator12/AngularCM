@@ -1,0 +1,5 @@
+@media (min-width: 450px) {
+  .main-wrapper {
+    grid-template-columns: var(--nav-width) 1fr;
+  }
+}

@@ -1,0 +1,17 @@
+@media (min-width: 450px) {
+  .book-list__button {
+    position: absolute;
+    right: 40px;
+    bottom: 40px;
+
+  }
+}
+
+@media (max-width: 450px) {
+  .book-list__button {
+    position: fixed !important;
+    right: 15px;
+    bottom: 85px;
+
+  }
+}

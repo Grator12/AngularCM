@@ -1,0 +1,23 @@
+@media (max-width: 450px) {
+  gcm-navigation {
+    position: fixed;
+    bottom: 0;
+    background-color: palegoldenrod;
+    height: 80px;
+    width: 100%;
+  }
+  .navigation {
+    display: flex;
+    justify-content: space-between;
+    z-index: 2;
+  }
+}
+
+@media (min-width: 450px) {
+  .navigation {
+    height: 100dvh;
+    display: grid;
+    border-radius: 16px;
+    top: 0px;
+  }
+}
