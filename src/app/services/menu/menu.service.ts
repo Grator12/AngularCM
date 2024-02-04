@@ -6,7 +6,7 @@ import {BehaviorSubject, map, pairwise, Subject, tap} from "rxjs";
 })
 export class MenuService {
 
-  public activatedLinkId$ = new Subject<number>();
+  public activatedLinkId$ = new BehaviorSubject<number>(2);
 
   // constructor() {
   //

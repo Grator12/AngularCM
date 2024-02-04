@@ -19,7 +19,7 @@
           {{ link.icon }}
         </div>
         <a class="menu__item__link">{{ link.label }}</a>
-        <div class="menu__item__count" *ngIf="link.count">{{ booksCount$ | async }}</div>
+        <div class="menu__item__count" *ngIf="link.count && (showBooksCount$ | async)">{{ booksCount$ | async }}</div>
         <!--        <div class="menu__item__count">rr{{booksCount$ | async }}rr</div>-->
       </a>
     </div>

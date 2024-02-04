@@ -4,7 +4,7 @@ import {MatListModule} from "@angular/material/list";
 import {MatButtonModule} from "@angular/material/button";
 import {AsyncPipe, CommonModule} from "@angular/common";
 import {MenuService} from "../../services/menu/menu.service";
-import {BehaviorSubject, Observable, Subject, Subscription, tap} from "rxjs";
+import {BehaviorSubject, map, Observable, Subject, Subscription, tap} from "rxjs";
 import {RouterLink, RouterLinkActive} from "@angular/router";
 import {BookService} from "../../services/book/book.service";
 
@@ -33,6 +33,8 @@ export class MenuComponent implements OnInit, OnDestroy {
   get activatedLinkId$(): Observable<number> {
     return this._menuService.activatedLinkId$;
   }
+
+  public showBooksCount$ = this.booksCount$.pipe(map((val) => val !== null && val > 0));
 
   constructor(private _menuService: MenuService, private _bookService: BookService) {
 

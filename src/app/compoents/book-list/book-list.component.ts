@@ -8,6 +8,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {BookPipe} from "../../pipes/book/book.pipe";
 import {MatDialog} from "@angular/material/dialog";
 import {AddBookComponent} from "../dialogs/add-book/add-book.component";
+import {trigger} from "@angular/animations";
 
 
 @Component({
@@ -70,8 +71,8 @@ export class BookListComponent implements OnInit {
   //     book.favorite = true;
   //   }
   // }
-  public onDelete(id: string): void {
-    console.log('Delete: ', id);
+  public onDelete($event: MouseEvent, id: string): void {
+    $event.stopPropagation();
     this.bookService.deleteBook(id).subscribe(() => this.loadBooks());
 
   }
@@ -82,4 +83,6 @@ export class BookListComponent implements OnInit {
   }
 
 
+  protected readonly trigger = trigger;
+  protected readonly event = event;
 }

@@ -1,9 +1,8 @@
-import {Injectable} from '@angular/core';
+import {Injectable, OnInit} from '@angular/core';
 import {IAddBook, IBook, IEditBook, IHttpBook} from "../../interfaces/book";
-import {BehaviorSubject, map, Observable, of, Subject, tap} from "rxjs";
+import {BehaviorSubject, map, Observable, of, Subject, take, tap} from "rxjs";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {environment} from "../../../environments/environment";
-import {AuthService} from "../authorization/auth.service";
 import {v4} from 'uuid';
 
 @Injectable({
@@ -27,17 +26,13 @@ export class BookService {
   public books$ = new BehaviorSubject<IBook[]>([]);
 
   constructor(private httpClient: HttpClient,
-              private authService: AuthService
   ) {
     //this._booksCountSubject.next(this._books.length);
     this.books$.pipe(map(books => books.length)).subscribe((value) => this.booksCountSubject.next(value));
+    this.getAllBooks().pipe(take(1)).subscribe();
   }
 
 
-  // public getAllBooks(): Observable<IBook[]> {
-  //   this.sendBooksCount();
-  //   return of(this._books);
-  // }
   public getAllBooks(): Observable<IBook[]> {
 
     return this.httpClient.get<IHttpBook[]>(environment.apiUrl + 'books',).pipe(

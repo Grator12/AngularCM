@@ -16,6 +16,7 @@ gcm-header {
   align-items: center;
 
   &__introduction {
+    color: var(--md-sys-color-on-secondary-container);
 
     &__intr {
       @include typography.body-large;
