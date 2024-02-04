@@ -1,24 +1,6 @@
-//@media (max-width: 1200px) {
-//  .book {
-//    //max-width: 400px;
-//    --mdc-list-list-item-one-line-container-height: auto;
-//
-//    &__info {
-//    }
-//  }
-//  .mdc-list-item {
-//    padding: 4px 16px !important;
-//
-//    &__content {
-//      white-space: unset !important;
-//    }
-//
-//    &__primary-text {
-//      white-space: unset !important;
-//    }
-//  }
-//}
-//
-//@media (min-width: 1200px) {
-//
-//}
+@media (min-width: 615px) {
+  .book-list {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 300px));
+
+  }
+}

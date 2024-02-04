@@ -1,9 +1,9 @@
 <mat-nav-list class="book-list">
   <ng-container *ngFor="let book of bookService.books$ | async">
     <div class="book__wrapper">
-      <mat-list-item class="book">
+      <mat-list-item class="book" (click)="editBook(book)">
         <!--      <div class="book">-->
-        <div class="book__info" (click)="editBook(book)">
+        <div class="book__info">
           <div class="book__info__name">
             {{ book.name }}
           </div>
@@ -11,7 +11,7 @@
             {{ book | bookPipe }}
           </div>
         </div>
-        <button mat-icon-button class="book__favoriteButton" (click)="onDelete(book.id)">
+        <button mat-icon-button class="book__favoriteButton" (click)="onDelete(book.id) " disableRipple>
           <span class="material-symbols-outlined"> delete </span>
         </button>
         <!--      </div>-->

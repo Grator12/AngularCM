@@ -1,13 +1,13 @@
-@media (min-width: 450px) {
+@media (min-width: 615px) {
   .book-list__button {
-    position: absolute;
+    position: absolute !important;
     right: 40px;
     bottom: 40px;
 
   }
 }
 
-@media (max-width: 450px) {
+@media (max-width: 615px) {
   .book-list__button {
     position: fixed !important;
     right: 15px;

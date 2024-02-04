@@ -2,9 +2,14 @@
   --mdc-list-list-item-one-line-container-height: auto;
 
   .mdc-list-item {
+    &__content {
+      height: 100%;
+    }
+
     &__primary-text {
       display: grid;
       grid-template-columns: 1fr 24px;
+      height: 100%;
     }
   }
 }

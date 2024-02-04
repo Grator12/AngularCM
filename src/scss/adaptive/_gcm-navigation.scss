@@ -1,19 +1,21 @@
-@media (max-width: 450px) {
+@media (max-width: 615px) {
   gcm-navigation {
     position: fixed;
     bottom: 0;
     background-color: palegoldenrod;
     height: 80px;
     width: 100%;
+    z-index: 2;
   }
   .navigation {
     display: flex;
-    justify-content: space-between;
-    z-index: 2;
+    justify-content: center;
+    gap: 16px;
+    //z-index: 1;
   }
 }
 
-@media (min-width: 450px) {
+@media (min-width: 615px) {
   .navigation {
     height: 100dvh;
     display: grid;

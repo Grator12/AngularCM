@@ -2,7 +2,6 @@
 
 .book-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 250px));
   grid-auto-flow: row;
   gap: 8px;
 }
@@ -50,7 +49,7 @@
 }
 
 .book-list__button {
-
+  z-index: 3;
   background-color: var(--md-sys-color-primary-container);
   color: var(--md-sys-color-on-primary-container);
 
